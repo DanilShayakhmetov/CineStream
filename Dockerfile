@@ -1,8 +1,8 @@
 FROM node:10.5.0
-WORKDIR /app
-COPY package.json /app
+WORKDIR /chat
+COPY chat/package.json /chat
 RUN npm install
-COPY . /app
+COPY ./chat /chat
 CMD node app.js
 EXPOSE 8888
 
