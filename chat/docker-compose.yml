@@ -9,3 +9,14 @@ services:
       - "8889:8888"
     volumes:
       - ./:/app
+    links:
+      - db
+
+  db:
+    container_name: postgres.chat
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: "123"
+
