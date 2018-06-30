@@ -1,0 +1,29 @@
+{% from "users/_form_macros.html" import render_field %}
+
+{% extends 'base.html' %}
+
+{% block meta_title %}Редактировать профиль{% endblock %}
+
+{% block body %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="page-header" style="margin-top:40px; margin-bottom: 40px">
+            <h2>Редактировать</h2>
+        </div>
+        <form action="{{ url_for('users.edit_profile') }}" method="post" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+            <dl>
+                {{ render_field(form.email, placeholder="Email") }}
+                {{ render_field(form.firstName, placeholder="Имя") }}
+                {{ render_field(form.lastName, placeholder="Фамилия") }}
+                {{ render_field(form.city, placeholder="Город") }}
+                {{ render_field(form.file, placeholder="Фотография") }}
+            </dl>
+            <button class="btn btn-sm btn-success" type="submit">Сохранить</button>
+        </form>
+    </div>
+{% endblock %}
+{% endblock %}
+
