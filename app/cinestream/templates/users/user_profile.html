@@ -33,7 +33,8 @@
                     <h1 style="margin-top: 30px; font-family: 'Roboto', sans-serif; color: white;">{{ current_user.firstName }} {{ current_user.lastName }}</h1>
                 </div>
                 <div class="col-6 col-md-4">
-                    <a class="btn btn-secondary pull-right" style="margin-top: 30px;" href="{{ url_for('users.logout') }}" role="button">Выйти</a>
+                    <a class="btn btn-secondary pull-right" style="margin-top: 30px;" href="{{ url_for('users.logout') }}"
+                       role="button">Выйти</a>
                     <a class="btn btn-secondary pull-right" style="margin-top: 30px;" href="{{ url_for('users.edit_profile') }}" role="button">Редактировать</a>
                 </div>
             </div>
@@ -64,15 +65,10 @@
                   <a class="nav-item nav-link" style="font-family: Verdana, Arial, sans-serif; font-size: 12px; margin-top: -22px" href="#">###</a>
                   <a class="nav-item nav-link" style="font-family: Verdana, Arial, sans-serif; font-size: 12px; margin-top: -22px" href="#">###</a>
                   <a class="nav-item nav-link" style="font-family: Verdana, Arial, sans-serif; font-size: 12px; margin-top: -22px" href="#">###</a>
-{#                    {% if current_user.role == "admin" %}#}
-{#                        <a class="nav-item nav-link" style="font-family: Verdana, Arial, sans-serif; font-size: 12px; margin-top: -22px" href="{{ url_for('users.admin_view_users') }}">Админ</a>#}
-{#                    {% endif %}#}
                 </div>
             </nav>
         </div>
     </div>
-
-
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -122,11 +122,10 @@ def user_profile():
 @login_required
 def edit_profile_template():
     form = EditProfileForm(request.form)
-    if request.method == 'GET':
-        form.email.data = current_user.email
-        form.firstName.data = current_user.firstName
-        form.lastName.data = current_user.lastName
-        form.city.data = current_user.city
+    form.email.data = current_user.email
+    form.firstName.data = current_user.firstName
+    form.lastName.data = current_user.lastName
+    form.city.data = current_user.city
     return render_template('users/user_profile_editor.html', form=form)
 
 
@@ -134,22 +133,21 @@ def edit_profile_template():
 @login_required
 def edit_profile():
     form = EditProfileForm(request.form)
-    if request.method == 'POST' and form.validate_on_submit():
-        try:
-            file = request.files['file']
-            filename = secure_filename(file.filename)
-            print(filename)
-            file.save(os.path.join(UPLOAD_FOLDER, filename))
-            path = UPLOAD_FOLDER2 + '/' + filename
-            current_user.path = path
-        except:
-            print('no new file')
+    try:
+        file = request.files['file']
+        filename = secure_filename(file.filename)
+        print(filename)
+        file.save(os.path.join(UPLOAD_FOLDER, filename))
+        path = UPLOAD_FOLDER2 + '/' + filename
+        current_user.path = path
+    except:
+        print('no new file')
 
-        current_user.email = form.email.data
-        current_user.firstName = form.firstName.data
-        current_user.lastName = form.lastName.data
-        current_user.city = form.city.data
+    current_user.email = form.email.data
+    current_user.firstName = form.firstName.data
+    current_user.lastName = form.lastName.data
+    current_user.city = form.city.data
 
-        db.session.commit()
-        print('Your changes have been saved.')
-        return redirect(url_for('users.user_profile'))
+    db.session.commit()
+    print('Your changes have been saved.')
+    return redirect(url_for('users.user_profile'))
