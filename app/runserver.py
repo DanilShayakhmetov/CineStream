@@ -1,12 +1,4 @@
-from flask import Flask
-
-app = Flask(__name__)
-
-
-@app.route('/a')
-def hello_world():
-    return 'Hello World!'
-
+from cinestream import app
 
 if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0')
+    app.run(debug=True)

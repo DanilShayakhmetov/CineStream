@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ current_user.name }}</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+          crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+          crossorigin="anonymous">
+
+    <style>
+        .general-container {
+            background: url('/static/{{current_user.path }}');
+            background-size: cover;
+            height: 100vh;
+            line-height: 50px;}
+    </style>
+
+</head>
+<body>
+
+    <div class="general-container">
+        <div class="container top-container">
+            <div class="row">
+                <div class="col-12 col-md-8">
+                    <h1 style="margin-top: 30px; font-family: 'Roboto', sans-serif; color: white;">{{ current_user.firstName }} {{ current_user.lastName }}</h1>
+                </div>
+                <div class="col-6 col-md-4">
+                    <a class="btn btn-secondary pull-right" style="margin-top: 30px;" href="{{ url_for('users.logout') }}"
+                       role="button">Выйти</a>
+                    <a class="btn btn-secondary pull-right" style="margin-top: 30px;" href="{{ url_for('users.edit_profile') }}" role="button">Редактировать</a>
+                </div>
+            </div>
+
+            <div class="row">
+                 <div class="col-md-8" style="font-family: 'Roboto', sans-serif; color: white;">
+                     <h6>{{ current_user.city }}</h6>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand navbar-light" style="background-color: white;
+                                                                    opacity: 0.7;
+                                                                    display: inline-block;
+                                                                    margin-top: 0px;
+                                                                    height: 20px;
+                                                                    padding-left: 0px;
+                                                                    padding-right: 0px;">
+                <div class="navbar-nav" style=" margin-top: -8px;
+                                                height: 20px;
+                                                padding-left: 0px;
+                                                padding-top: 0px;
+                                                padding-bottom: 0px;
+                                                padding-right: 0px;">
+                <li style="background-color: #b30">
+                  <a class="nav-item nav-link active" style="color: white;
+                                                              font-family: Verdana, Arial, sans-serif;
+                                                              font-size: 12px;margin-top: -22px"
+                              href="#">О себе<span class="sr-only">(current)</span></a></li>
+                  <a class="nav-item nav-link" style="font-family: Verdana, Arial, sans-serif; font-size: 12px; margin-top: -22px" href="#">###</a>
+                  <a class="nav-item nav-link" style="font-family: Verdana, Arial, sans-serif; font-size: 12px; margin-top: -22px" href="#">###</a>
+                  <a class="nav-item nav-link" style="font-family: Verdana, Arial, sans-serif; font-size: 12px; margin-top: -22px" href="#">###</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+</body>
+</html>
