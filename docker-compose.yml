@@ -1,0 +1,30 @@
+version: '3'
+services:
+  node:
+    container_name: node.chat
+    build:
+      context: .
+      dockerfile: chat/Dockerfile_NODE
+    ports:
+      - "8889:8888"
+    volumes:
+      - ./chat:/chat
+      - ./app:/app
+    links:
+      - db
+
+  db:
+    container_name: postgres.chat
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: "123"
+
+  adminer:
+    container_name: adminer.chat
+    image: adminer
+    ports:
+      - "8080:8080"
+    links:
+      - db
